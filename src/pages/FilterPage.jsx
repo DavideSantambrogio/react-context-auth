@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterByTag from '../src/components/FilterByTag';
+import FilterByTag from '../components/FilterByTag';
 import { Link } from 'react-router-dom'; 
 import { Button } from 'reactstrap';
 

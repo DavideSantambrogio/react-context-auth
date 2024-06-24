@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ArticleForm from '../src/components/ArticleForm';
+import ArticleForm from '../components/ArticleForm';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 

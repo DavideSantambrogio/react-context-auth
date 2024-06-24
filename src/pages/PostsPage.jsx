@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ArticleList from '../src/components/ArticleList';
+import ArticleList from '../components/ArticleList';
 import { Link } from 'react-router-dom'; 
 import { Button } from 'reactstrap';
 

@@ -4,11 +4,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import HomePage from '../pages/HomePage.jsx';
-import PostsPage from '../pages/PostsPage.jsx';
-import CreatePostPage from '../pages/CreatePostPage.jsx';
-import SinglePostPage from '../pages/SinglePostPage.jsx';
-import FilterPage from '../pages/FilterPage.jsx';
+import HomePage from './pages/HomePage.jsx';
+import PostsPage from './pages/PostsPage.jsx';
+import CreatePostPage from './pages/CreatePostPage.jsx';
+import SinglePostPage from './pages/SinglePostPage.jsx';
+import FilterPage from './pages/FilterPage.jsx';
 
 // Definizione delle rotte
 const routes = [
