@@ -1,45 +1,39 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
 
 import HomePage from './pages/HomePage.jsx';
 import PostsPage from './pages/PostsPage.jsx';
 import CreatePostPage from './pages/CreatePostPage.jsx';
 import SinglePostPage from './pages/SinglePostPage.jsx';
 import FilterPage from './pages/FilterPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import PrivateRouteMiddleware from './middlewares/PrivateRouteMiddleware.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
 
-// Definizione delle rotte
-const routes = [
-  {
-    path: '/',
-    element: <HomePage />
-  },
-  {
-    path: '/posts',
-    element: <PostsPage />
-  },
-  {
-    path: '/create',
-    element: <CreatePostPage />
-  },
-  {
-    path: '/posts/:slug',
-    element: <SinglePostPage />
-  },
-  {
-    path: '/filter',
-    element: <FilterPage />
-  },
-];
+const App = () => {
+  return (
+    <div className="container">
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/posts" element={<PostsPage />} />
+            <Route
+              path="/create"
+              element={<PrivateRouteMiddleware element={CreatePostPage} />}
+            />
+            <Route path="/posts/:slug" element={<SinglePostPage />} />
+            <Route path="/filter" element={<FilterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
+    </div>
 
-// Creazione del router
-const router = createBrowserRouter(routes);
+  );
+};
 
-// Renderizzazione dell'applicazione
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+// Utilizzo di createRoot per renderizzare l'applicazione in React 18
+createRoot(document.getElementById('root')).render(<App />);

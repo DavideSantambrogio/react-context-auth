@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import ArticleForm from './components/ArticleForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PrivateRouteMiddleware from './PrivateRouteMiddleware';
+import DataRoutes from './DataRoutes';
 
 function App() {
   const [isWhiteBackground, setIsWhiteBackground] = useState(true);
